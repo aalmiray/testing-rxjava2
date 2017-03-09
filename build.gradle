@@ -1,0 +1,58 @@
+/*
+ * Copyright 2016-2017 Andres Almiray
+ *
+ * This file is part of Testing RxJava2
+ *
+ * Testing RxJava2 is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Testing RxJava2 is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Testing RxJava2. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'com.github.ben-manes.versions' version '0.14.0'
+    id 'com.github.hierynomus.license' version '0.11.0'
+    id 'org.kordamp.gradle.stats' version '0.2.0'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
+    testCompile "org.awaitility:awaitility:$awaitilityVersion"
+}
+
+license {
+    header = rootProject.file('gradle/HEADER')
+    strictCheck = true
+    ignoreFailures = true
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+        fxml = 'XML_STYLE'
+    }
+    ext.year    = '2016-2017'
+    ext.author  = 'Andres Almiray'
+    ext.project = 'Testing RxJava2'
+}
+
+
+idea {
+    project {
+        jdkName '1.8'
+        languageLevel '1.8'
+    }
+}
